@@ -1,139 +1,22 @@
 import React from 'react';
 import FroshCard from './FroshCard';
+import FroshGrid from './FroshGrid';
+import Divider from 'material-ui/Divider';
 
-import {Grid, Row, Col} from 'react-flexbox-grid';
-
-var arr = [
-    {
-        displayName: "Joon Hee Lee",
-        preferredName: "Joon",
-        image: "app/static/images/joon.jpeg",
+const styles = {
+    title: {
+        margin: "10px 50px 10px 50px",
     },
-    {
-        displayName: "Anish Thilagar",
-        preferredName: "Anish",
-        image: "app/static/images/anish.jpeg",
-    },
-        {
-        displayName: "Joon Hee Lee",
-        preferredName: "Joon",
-        image: "app/static/images/joon.jpeg",
-    },
-    {
-        displayName: "Anish Thilagar",
-        preferredName: "Anish",
-        image: "app/static/images/anish.jpeg",
-    },
-    {
-        displayName: "Joon Hee Lee",
-        preferredName: "Joon",
-        image: "app/static/images/joon.jpeg",
-    },
-    {
-        displayName: "Anish Thilagar",
-        preferredName: "Anish",
-        image: "app/static/images/anish.jpeg",
-    },
-        {
-        displayName: "Joon Hee Lee",
-        preferredName: "Joon",
-        image: "app/static/images/joon.jpeg",
-    },
-    {
-        displayName: "Anish Thilagar",
-        preferredName: "Anish",
-        image: "app/static/images/anish.jpeg",
-    },
-    {
-        displayName: "Joon Hee Lee",
-        preferredName: "Joon",
-        image: "app/static/images/joon.jpeg",
-    },
-    {
-        displayName: "Anish Thilagar",
-        preferredName: "Anish",
-        image: "app/static/images/anish.jpeg",
-    },
-        {
-        displayName: "Joon Hee Lee",
-        preferredName: "Joon",
-        image: "app/static/images/joon.jpeg",
-    },
-    {
-        displayName: "Anish Thilagar",
-        preferredName: "Anish",
-        image: "app/static/images/anish.jpeg",
-    },
-    {
-        displayName: "Joon Hee Lee",
-        preferredName: "Joon",
-        image: "app/static/images/joon.jpeg",
-    },
-    {
-        displayName: "Anish Thilagar",
-        preferredName: "Anish",
-        image: "app/static/images/anish.jpeg",
-    },
-        {
-        displayName: "Joon Hee Lee",
-        preferredName: "Joon",
-        image: "app/static/images/joon.jpeg",
-    },
-    {
-        displayName: "Anish Thilagar",
-        preferredName: "Anish",
-        image: "app/static/images/anish.jpeg",
-    },
-    {
-        displayName: "Joon Hee Lee",
-        preferredName: "Joon",
-        image: "app/static/images/joon.jpeg",
-    },
-    {
-        displayName: "Anish Thilagar",
-        preferredName: "Anish",
-        image: "app/static/images/anish.jpeg",
-    },
-        {
-        displayName: "Joon Hee Lee",
-        preferredName: "Joon",
-        image: "app/static/images/joon.jpeg",
-    },
-    {
-        displayName: "Anish Thilagar",
-        preferredName: "Anish",
-        image: "app/static/images/anish.jpeg",
-    },
-    {
-        displayName: "Joon Hee Lee",
-        preferredName: "Joon",
-        image: "app/static/images/joon.jpeg",
-    },
-    {
-        displayName: "Anish Thilagar",
-        preferredName: "Anish",
-        image: "app/static/images/anish.jpeg",
-    },
-        {
-        displayName: "Joon Hee Lee",
-        preferredName: "Joon",
-        image: "app/static/images/joon.jpeg",
-    },
-    {
-        displayName: "Anish Thilagar",
-        preferredName: "Anish",
-        image: "app/static/images/anish.jpeg",
-    },
-]
+}
 
 const Home = () => (
-    <Grid fluid>
-        <Row>
-            {arr.map(function(frosh) {
-                return <FroshCard frosh={frosh}/>
-            })}
-        </Row>
-    </Grid>
+    <div>
+        <div style={styles.title}>
+            <h2> The Prefrosh </h2>
+            <Divider/>
+        </div>
+        <FroshGrid />
+    </div>
 );
 
 export default Home;
