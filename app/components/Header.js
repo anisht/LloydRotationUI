@@ -24,8 +24,7 @@ const RightMenu = () => (
     anchorOrigin={{horizontal: 'right', vertical: 'top'}}
   >
     <MenuItem primaryText="Search" />
-    <a style={{textDecoration: "none"}} href="lloyd/logout">
-    <MenuItem primaryText="Logout" /></a>
+    <MenuItem primaryText="Logout" href="lloyd/logout"/>
   </IconMenu>
 )
 
