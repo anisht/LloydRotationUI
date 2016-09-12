@@ -4,7 +4,7 @@ import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'mat
 const styles = {
     cardStyle: {
         cursor: 'pointer',
-        margin: "15px",
+        margin: "8px",
     },
     overlayPadding: {
         padding: "0px 8px 8px 8px",
@@ -13,10 +13,10 @@ const styles = {
         padding: "0px",
     },
     titleFont: {
-        fontSize: 16,
+        fontSize: "120%",
         lineHeight: "25px",
-    }
-
+        textAlign: "center"
+    },
 }
 
 const FroshCard = (props) => (
@@ -25,7 +25,6 @@ const FroshCard = (props) => (
             overlay={
                 <CardTitle 
                     title={props.frosh.displayName}
-                    subtitle={"Preferred: " + props.frosh.preferredName}
                     titleStyle={styles.titleFont}
                     style={styles.overlayPadding}
                 />

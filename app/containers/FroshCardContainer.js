@@ -14,6 +14,7 @@ const FroshCardContainer = React.createClass({
                 frosh: this.props.frosh,
             }
         });
+        window.scrollTo(0, 0);
     },
     render() {
         return (
