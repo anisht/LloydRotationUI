@@ -1,8 +1,13 @@
 import React from 'react';
 
-const Main = function (props) {
+import Header from '../components/Header';
+
+const Main = (props) => {
     return (
-        <div>Hello World!</div>
+        <div>
+            <Header />
+            { props.children }
+        </div>
     );
 };
 
