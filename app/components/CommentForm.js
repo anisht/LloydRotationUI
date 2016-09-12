@@ -8,16 +8,21 @@ const styles = {
     },
 }
 
-const CommentForm = () => (
+const CommentForm = (props) => (
     <div>
         <TextField
             fullWidth
             floatingLabelText="Comment"
             multiLine
             rowsMax={4}
+            value={props.text}
+            onChange={props.handleChange}
         />
         <div style={styles.rightAlign}>
-            <RaisedButton label="Submit" />
+            <RaisedButton
+                label="Submit"
+                onTouchTap={props.handleSubmit}
+            />
         </div>
     </div>
 );

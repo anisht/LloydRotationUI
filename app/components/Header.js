@@ -40,10 +40,14 @@ const Header = React.createClass({
     render() {
         return (
             <AppBar
-              title={<span style={styles.title}>Lloyd Rotation</span>}
-              onTitleTouchTap={this.handleClick}
-              iconElementLeft={<IconButton><ActionHome /></IconButton>}
-              iconElementRight={<RightMenu />}
+                title={<span style={styles.title}>Lloyd Rotation</span>}
+                onTitleTouchTap={this.handleClick}
+                iconElementLeft={
+                    <IconButton onTouchTap={this.handleClick}>
+                        <img width="24px" src="app/static/images/doubleL.png"/>
+                    </IconButton>
+                }
+                iconElementRight={<RightMenu />}
             />
         );
     }
