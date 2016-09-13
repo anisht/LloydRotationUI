@@ -1,27 +1,25 @@
 import React from 'react';
 
 import FroshPage from '../components/FroshPage';
+import apiClient from '../utils/apiClient';
 
 const FroshPageContainer = React.createClass({
-    getInitialState() {
+    getInitialState: function() {
         return {
-            comments: [
-                {
-                    author: "Joon Hee Lee",
-                    content: "This guy is cool!",
-                },
-                {
-                    author: "Anish Thilagar",
-                    content: "This guy is aite",
-                },
-                {
-                    author: "Joon Hee Lee",
-                    content: "This guy is cool!",
-                }, 
-            ],
+            comments: [],
+            loading: true,
         };
     },
-    addComment(author, content){
+    componentDidMount: function() {
+        this.setState({
+            comments: this.requestComments(),
+            loading: false,
+        });
+    },
+    requestComments: function() {
+        return apiClient.getComments();
+    },
+    addComment: function(author, content){
         if (content) {
             this.setState({
                 comments: this.state.comments.concat([{

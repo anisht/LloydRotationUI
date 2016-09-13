@@ -1,6 +1,6 @@
 import React from 'react';
 import FroshCard from './FroshCard';
-import FroshGrid from './FroshGrid';
+import FroshGridContainer from '../containers/FroshGridContainer';
 import Divider from 'material-ui/Divider';
 
 const styles = {
@@ -15,7 +15,7 @@ const Home = () => (
             <h2> The Prefrosh </h2>
             <Divider/>
         </div>
-        <FroshGrid />
+        <FroshGridContainer />
     </div>
 );
 

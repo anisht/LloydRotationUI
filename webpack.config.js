@@ -26,10 +26,15 @@ module.exports = {
 				exclude: /flexboxgrid/,
 			},
 			{
-			  test: /\.css$/,
-			  loader: 'style!css?modules',
-			  include: /flexboxgrid/,
-			}
+			    test: /\.css$/,
+			    loader: 'style!css?modules',
+			    include: /flexboxgrid/,
+			},
+			{
+		        test: /\.(png|jpg)$/,
+		        include: __dirname + '/app/static/images',
+		        loader: 'file-loader',
+		    },
 		]
 	},
 	plugins : [HtmlWebpackPluginConfig]

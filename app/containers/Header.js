@@ -44,7 +44,7 @@ const Header = React.createClass({
                 onTitleTouchTap={this.handleClick}
                 iconElementLeft={
                     <IconButton onTouchTap={this.handleClick}>
-                        <img width="24px" src="app/static/images/doubleL.png"/>
+                        <img width="24px" src={require("../static/images/doubleL.png")}/>
                     </IconButton>
                 }
                 iconElementRight={<RightMenu />}
