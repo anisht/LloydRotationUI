@@ -28,7 +28,6 @@ const FroshPageContainer = React.createClass({
         this.requestComments(this.state.prefrosh_id);
     },
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps.routeParams.prefrosh_id);
         this.setState({
             prefrosh_id: nextProps.routeParams.prefrosh_id,
             frosh: null,
@@ -40,7 +39,6 @@ const FroshPageContainer = React.createClass({
     requestFrosh: function(prefrosh_id) {
         apiClient.getFrosh(prefrosh_id)
             .then(function (frosh) {
-                console.log(frosh);
                 this.setState({
                     frosh: frosh,
                 });
@@ -49,7 +47,6 @@ const FroshPageContainer = React.createClass({
     requestComments: function(prefrosh_id) {
         apiClient.getComments(prefrosh_id)
             .then(function (comments) {
-                console.log("swag");
                 this.setState({
                     comments: comments,
                 });
