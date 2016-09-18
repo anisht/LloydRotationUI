@@ -10,7 +10,7 @@ const CommentFormContainer = React.createClass({
     },
     handleSubmit: function(e) {
         e.preventDefault();
-        this.props.addComment(this.props.username, this.state.text);
+        this.props.addComment(this.state.text);
         this.setState({text: ""});
     },
     handleChange: function(e) {

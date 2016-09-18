@@ -10,9 +10,6 @@ const FroshCardContainer = React.createClass({
         e.preventDefault();
         this.context.router.push({
             pathname: '/frosh/' + this.props.frosh.id,
-            state: {
-                frosh: this.props.frosh,
-            }
         });
         window.scrollTo(0, 0);
     },

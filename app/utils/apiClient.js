@@ -1,198 +1,54 @@
 import axios from 'axios';
 
-const froshList = [
-    {
-        id: 1,
-        displayName: "Joon Hee Lee",
-        preferredName: "Joon",
-        curHouse: "Lloyd",
-        image: "http://donut.caltech.edu/directory/card_image.php?inum=9579&photo=show",
-    },
-    {
-        id: 2,
-        displayName: "Anish Thilagar",
-        preferredName: "Anish",
-        curHouse: "Lloyd",
-        image: "http://donut.caltech.edu/directory/card_image.php?inum=9671&photo=show",
-    },
-    {
-        id: 3,
-        displayName: "Joon Hee Lee",
-        preferredName: "Joon",
-        curHouse: "Lloyd",
-        image: "http://donut.caltech.edu/directory/card_image.php?inum=9579&photo=show",
-    },
-    {
-        id: 4,
-        displayName: "Anish Thilagar",
-        preferredName: "Anish",
-        curHouse: "Lloyd",
-        image: "http://donut.caltech.edu/directory/card_image.php?inum=9671&photo=show",
-    },
-    {
-        id: 5,
-        displayName: "Joon Hee Lee",
-        preferredName: "Joon",
-        curHouse: "Lloyd",
-        image: "http://donut.caltech.edu/directory/card_image.php?inum=9579&photo=show",
-    },
-    {
-        id: 6,
-        displayName: "Anish Thilagar",
-        preferredName: "Anish",
-        curHouse: "Lloyd",
-        image: "http://donut.caltech.edu/directory/card_image.php?inum=9671&photo=show",
-    },
-    {
-        id: 7,
-        displayName: "Joon Hee Lee",
-        preferredName: "Joon",
-        curHouse: "Lloyd",
-        image: "http://donut.caltech.edu/directory/card_image.php?inum=9579&photo=show",
-    },
-    {
-        id: 8,
-        displayName: "Anish Thilagar",
-        preferredName: "Anish",
-        curHouse: "Lloyd",
-        image: "http://donut.caltech.edu/directory/card_image.php?inum=9671&photo=show",
-    },
-    {
-        id: 9,
-        displayName: "Joon Hee Lee",
-        preferredName: "Joon",
-        curHouse: "Lloyd",
-        image: "http://donut.caltech.edu/directory/card_image.php?inum=9579&photo=show",
-    },
-    {
-        id: 10,
-        displayName: "Anish Thilagar",
-        preferredName: "Anish",
-        curHouse: "Lloyd",
-        image: "http://donut.caltech.edu/directory/card_image.php?inum=9671&photo=show",
-    },
-    {
-        id: 11,
-        displayName: "Joon Hee Lee",
-        preferredName: "Joon",
-        curHouse: "Lloyd",
-        image: "http://donut.caltech.edu/directory/card_image.php?inum=9579&photo=show",
-    },
-    {
-        id: 12,
-        displayName: "Anish Thilagar",
-        preferredName: "Anish",
-        curHouse: "Lloyd",
-        image: "http://donut.caltech.edu/directory/card_image.php?inum=9671&photo=show",
-    },
-    {
-        id: 13,
-        displayName: "Joon Hee Lee",
-        preferredName: "Joon",
-        curHouse: "Lloyd",
-        image: "http://donut.caltech.edu/directory/card_image.php?inum=9579&photo=show",
-    },
-    {
-        id: 14,
-        displayName: "Anish Thilagar",
-        preferredName: "Anish",
-        curHouse: "Lloyd",
-        image: "http://donut.caltech.edu/directory/card_image.php?inum=9671&photo=show",
-    },
-    {
-        id: 15,
-        displayName: "Joon Hee Lee",
-        preferredName: "Joon",
-        curHouse: "Lloyd",
-        image: "http://donut.caltech.edu/directory/card_image.php?inum=9579&photo=show",
-    },
-    {
-        id: 16,
-        displayName: "Anish Thilagar",
-        preferredName: "Anish",
-        curHouse: "Lloyd",
-        image: "http://donut.caltech.edu/directory/card_image.php?inum=9671&photo=show",
-    },
-    {
-        id: 17,
-        displayName: "Joon Hee Lee",
-        preferredName: "Joon",
-        curHouse: "Lloyd",
-        image: "http://donut.caltech.edu/directory/card_image.php?inum=9579&photo=show",
-    },
-    {
-        id: 18,
-        displayName: "Anish Thilagar",
-        preferredName: "Anish",
-        curHouse: "Lloyd",
-        image: "http://donut.caltech.edu/directory/card_image.php?inum=9671&photo=show",
-    },
-    {
-        id: 19,
-        displayName: "Joon Hee Lee",
-        preferredName: "Joon",
-        curHouse: "Lloyd",
-        image: "http://donut.caltech.edu/directory/card_image.php?inum=9579&photo=show",
-    },
-    {
-        id: 20,
-        displayName: "Anish Thilagar",
-        preferredName: "Anish",
-        curHouse: "Lloyd",
-        image: "http://donut.caltech.edu/directory/card_image.php?inum=9671&photo=show",
-    },
-    {
-        id: 21,
-        displayName: "Joon Hee Lee",
-        preferredName: "Joon",
-        curHouse: "Lloyd",
-        image: "http://donut.caltech.edu/directory/card_image.php?inum=9579&photo=show",
-    },
-    {
-        id: 22,
-        displayName: "Anish Thilagar",
-        preferredName: "Anish",
-        curHouse: "Lloyd",
-        image: "http://donut.caltech.edu/directory/card_image.php?inum=9671&photo=show",
-    },
-    {
-        id: 23,
-        displayName: "Joon Hee Lee",
-        preferredName: "Joon",
-        curHouse: "Lloyd",
-        image: "http://donut.caltech.edu/directory/card_image.php?inum=9579&photo=show",
-    },
-    {
-        id: 24,
-        displayName: "Anish Thilagar",
-        preferredName: "Anish",
-        curHouse: "Lloyd",
-        image: "http://donut.caltech.edu/directory/card_image.php?inum=9671&photo=show",
-    },
-]
+const production = false;
 
-const comments = [
-    {
-        author: "Joon Hee Lee",
-        content: "This guy is cool!",
-    },
-    {
-        author: "Anish Thilagar",
-        content: "This guy is aite",
-    },
-    {
-        author: "Joon Hee Lee",
-        content: "This guy is cool!",
-    }, 
-]
+let baseURL;
+
+if (production) {
+    baseURL = "http://lloyd.caltech.edu";
+} else {
+    baseURL = "http://localhost:5000";
+}
 
 const apiClient = {
     getFroshList: function() {
-        return froshList
+        return axios.get(baseURL + "/rotation/api/prefrosh")
+            .then(function(info) {
+                return info.data.prefroshList;
+            })
+            .catch(function (err) {
+                console.warn('Error in getFroshList', err);
+            });
     },
-    getComments: function() {
-        return comments
-    }
+    getFrosh: function(prefrosh_id) {
+        return axios.get(baseURL + "/rotation/api/prefrosh/" + prefrosh_id)
+            .then(function(info) {
+                return info.data;
+            })
+            .catch(function (err) {
+                console.warn('Error in getFrosh', err);
+            });
+    },
+    getComments: function(prefrosh_id) {
+        return axios.get(baseURL + "/rotation/api/comments/" + prefrosh_id)
+            .then(function(info) {
+                return info.data.comments;
+            })
+            .catch(function (err) {
+                console.warn('Error in getComments', err);
+            });
+    },
+    postComment: function(prefrosh_id, comment) {
+        return axios.post(baseURL + "/rotation/api/comments/" + prefrosh_id, {
+            comment: comment
+        })
+            .then(function (response) {
+                return response
+            })
+            .catch(function (err) {
+                console.warn('Error in postComment', err);
+            });
+    },
 }
 
 export default apiClient;

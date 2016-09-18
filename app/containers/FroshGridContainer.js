@@ -5,7 +5,7 @@ import FroshGrid from '../components/FroshGrid';
 import apiClient from '../utils/apiClient';
 
 const styles = {
-    a: {
+    loading: {
         width: "100%",
         height: "70vh",
         textAlign: "center",
@@ -20,26 +20,29 @@ const FroshGridContainer = React.createClass({
         return {
             froshList: [],
             loading: true,
-        };
+        }
     },
     componentDidMount: function() {
         this.requestFroshList();
     },
     requestFroshList: function() {
-        this.setState({
-            froshList: apiClient.getFroshList(),
-            loading: true,
-        });
+        apiClient.getFroshList()
+            .then(function (froshList) {
+                this.setState({
+                    froshList: froshList,
+                    loading: false,
+                });
+            }.bind(this));
     },
-    render() {
+    render: function() {
         return (
-            this.state.loading === true
+            this.state.loading
             ?
-            <FroshGrid froshList={this.state.froshList}/>
+                <div style={styles.loading}>
+                    <CircularProgress style={styles.center} size={140}/>
+                </div>
             :
-            <div style={styles.a}>
-                <CircularProgress style={styles.center} size={140}/>
-            </div>
+                <FroshGrid froshList={this.state.froshList}/>
         );
     }
 });

@@ -9,22 +9,19 @@ const styles = {
     },
 }
 
-const FroshDetailedCard = React.createClass({
-    render() {
-    return(
+const FroshDetailedCard = (props) => (
     <div>
         <Card style={styles.cardStyle}>
             <CardMedia>
-                <img src={this.props.frosh.image}/>
+                <img src={props.frosh.photo_url}/>
             </CardMedia>
             <CardTitle
-                title={this.props.frosh.displayName}
-                subtitle={<span>Preferred Name: {this.props.frosh.preferredName}
-                          <br/>Rotating out of: {this.props.frosh.curHouse}</span>} 
+                title={props.frosh.displayName}
+                subtitle={<span>Preferred Name: {props.frosh.preferredName}
+                          <br/>Rotating out of: {props.frosh.rotationHouse}</span>} 
             />
         </Card>
-    </div>);
-    }
-});
+    </div>
+);
 
 export default FroshDetailedCard;

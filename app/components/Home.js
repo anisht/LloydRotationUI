@@ -1,7 +1,8 @@
 import React from 'react';
+import Divider from 'material-ui/Divider';
+
 import FroshCard from './FroshCard';
 import FroshGridContainer from '../containers/FroshGridContainer';
-import Divider from 'material-ui/Divider';
 
 const styles = {
     title: {
@@ -9,7 +10,7 @@ const styles = {
     },
 }
 
-const Home = () => (
+const Home = (props) => (
     <div>
         <div style={styles.title}>
             <h2> The Prefrosh </h2>

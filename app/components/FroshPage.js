@@ -14,9 +14,9 @@ const FroshPage = (props) => (
             </Col>
             <Col xs={12} sm={8} md={8}>
                 <div style={{margin: "20px"}}>
-                    <CommentFormContainer addComment={props.addComment} username={props.username} />
+                    <CommentFormContainer addComment={props.addComment}/>
                     {props.comments.map(function(comment, index){
-                        return <Comment author={comment.author} content={comment.content} key={index} />
+                        return <Comment author={comment.user} content={comment.content} key={index} />
                     })}
                 </div>
             </Col>

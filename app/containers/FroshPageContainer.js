@@ -1,42 +1,81 @@
 import React from 'react';
+import CircularProgress from 'material-ui/CircularProgress';
 
 import FroshPage from '../components/FroshPage';
 import apiClient from '../utils/apiClient';
 
+const styles = {
+    loading: {
+        width: "100%",
+        height: "70vh",
+        textAlign: "center",
+    },
+    center: {
+        marginTop: "10vh",
+    },
+}
+
 const FroshPageContainer = React.createClass({
     getInitialState: function() {
         return {
+            prefrosh_id: this.props.routeParams.prefrosh_id,
+            frosh: null,
             comments: [],
-            loading: true,
         };
     },
     componentDidMount: function() {
+        this.requestFrosh(this.state.prefrosh_id);
+        this.requestComments(this.state.prefrosh_id);
+    },
+    componentWillReceiveProps(nextProps) {
+        console.log(nextProps.routeParams.prefrosh_id);
         this.setState({
-            comments: this.requestComments(),
-            loading: false,
+            prefrosh_id: nextProps.routeParams.prefrosh_id,
+            frosh: null,
+            comments: [],
         });
+        this.requestFrosh(nextProps.routeParams.prefrosh_id);
+        this.requestComments(nextProps.routeParams.prefrosh_id);
     },
-    requestComments: function() {
-        return apiClient.getComments();
+    requestFrosh: function(prefrosh_id) {
+        apiClient.getFrosh(prefrosh_id)
+            .then(function (frosh) {
+                console.log(frosh);
+                this.setState({
+                    frosh: frosh,
+                });
+            }.bind(this));
     },
-    addComment: function(author, content){
-        if (content) {
-            this.setState({
-                comments: this.state.comments.concat([{
-                    author: author,
-                    content: content,
-                }]),
-            });
+    requestComments: function(prefrosh_id) {
+        apiClient.getComments(prefrosh_id)
+            .then(function (comments) {
+                console.log("swag");
+                this.setState({
+                    comments: comments,
+                });
+            }.bind(this));
+    },
+    addComment: function(comment){
+        if (comment) {
+            apiClient.postComment(this.state.prefrosh_id, comment)
+                .then(function (response) {
+                    this.requestComments();
+                }.bind(this));
         }
     },
     render() {
         return (
-            <FroshPage
-                frosh={this.props.location.state.frosh}
-                comments={this.state.comments}
-                addComment={this.addComment}
-                username="Joon Hee Lee" // TODO: Need to keep track of logged in user somehow
-            />
+            !this.state.frosh
+            ?
+                <div style={styles.loading}>
+                    <CircularProgress style={styles.center} size={140}/>
+                </div>
+            :
+                <FroshPage
+                    frosh={this.state.frosh}
+                    comments={this.state.comments}
+                    addComment={this.addComment}
+                />
         );
     }
 });

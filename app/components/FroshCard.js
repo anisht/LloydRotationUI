@@ -31,7 +31,7 @@ const FroshCard = (props) => (
             }
             overlayContentStyle={styles.noPadding}
         >
-            <img src={props.frosh.image}/>
+            <img src={props.frosh.photo_url}/>
         </CardMedia>
     </Card>
 );
