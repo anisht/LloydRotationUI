@@ -27,7 +27,7 @@ const FroshPageContainer = React.createClass({
         this.requestFrosh(this.state.prefrosh_id);
         this.requestComments(this.state.prefrosh_id);
     },
-    componentWillReceiveProps(nextProps) {
+    componentWillReceiveProps: function(nextProps) {
         this.setState({
             prefrosh_id: nextProps.routeParams.prefrosh_id,
             frosh: null,
@@ -52,13 +52,19 @@ const FroshPageContainer = React.createClass({
                 });
             }.bind(this));
     },
-    addComment: function(comment){
+    addComment: function(comment) {
         if (comment) {
             apiClient.postComment(this.state.prefrosh_id, comment)
                 .then(function (response) {
-                    this.requestComments();
+                    this.requestComments(this.state.prefrosh_id);
                 }.bind(this));
         }
+    },
+    deleteComment: function(comment_id) {
+        apiClient.deleteComment(comment_id)
+            .then(function(response) {
+                this.requestComments(this.state.prefrosh_id);
+            }.bind(this));
     },
     render() {
         return (
@@ -72,6 +78,7 @@ const FroshPageContainer = React.createClass({
                     frosh={this.state.frosh}
                     comments={this.state.comments}
                     addComment={this.addComment}
+                    deleteComment={this.deleteComment}
                 />
         );
     }

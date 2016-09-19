@@ -30,7 +30,7 @@ const apiClient = {
             });
     },
     getComments: function(prefrosh_id) {
-        return axios.get(baseURL + "/rotation/api/comments/" + prefrosh_id)
+        return axios.get(baseURL + "/rotation/api/feedback/" + prefrosh_id)
             .then(function(info) {
                 return info.data.comments;
             })
@@ -39,7 +39,7 @@ const apiClient = {
             });
     },
     postComment: function(prefrosh_id, comment) {
-        return axios.post(baseURL + "/rotation/api/comments/" + prefrosh_id, {
+        return axios.post(baseURL + "/rotation/api/feedback/" + prefrosh_id, {
             comment: comment
         })
             .then(function (response) {
@@ -47,6 +47,12 @@ const apiClient = {
             })
             .catch(function (err) {
                 console.warn('Error in postComment', err);
+            });
+    },
+    deleteComment: function(comment_id) {
+        return axios.delete(baseURL + "/rotation/api/comments/" + comment_id)
+            .catch(function (err) {
+                console.warn('Error in deleteComment', err);
             });
     },
 }

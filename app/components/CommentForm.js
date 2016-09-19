@@ -3,8 +3,8 @@ import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
 const styles = {
-    rightAlign: {
-        textAlign: "right"
+    submit: {
+        textAlign: "right",
     },
 }
 
@@ -18,9 +18,9 @@ const CommentForm = (props) => (
             value={props.text}
             onChange={props.handleChange}
         />
-        <div style={styles.rightAlign}>
+        <div style={styles.submit}>
             <RaisedButton
-                label="Submit"
+                label="submit"
                 onTouchTap={props.handleSubmit}
             />
         </div>
