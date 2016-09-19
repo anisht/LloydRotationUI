@@ -1,6 +1,7 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import Snackbar from 'material-ui/Snackbar';
 
 const styles = {
     submit: {
@@ -24,6 +25,12 @@ const CommentForm = (props) => (
                 onTouchTap={props.handleSubmit}
             />
         </div>
+        <Snackbar
+            open={props.snackBarOpen}
+            message="Comment added!"
+            autoHideDuration={2000}
+            onRequestClose={props.handleSnackBarClose}
+        />
     </div>
 );
 
