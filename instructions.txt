@@ -1,0 +1,8 @@
+1) Node (+ npm) at https://nodejs.org/
+2) Update npm to latest version: sudo npm install -g npm
+3) From root directory of repo, run "npm install" to install all dependencies
+4) For development, run "npm run start". Then start the flask backend server. Make sure that
+the "production" variable in the backend and in app/utils/apiClient.js are set to false.
+5) For production, run "npm run production". The index_bundle.js file produced can be found
+in dist/. Copy this to the backend repo. (Sometimes, you need to clear cache in your browser
+to see updates in the js file).
