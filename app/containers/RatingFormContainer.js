@@ -12,19 +12,34 @@ const RatingFormContainer = React.createClass({
     componentWillReceiveProps: function(nextProps) {
         this.setState({
             fit: nextProps.currentRating ? nextProps.currentRating.fit : 5,
+            comfort_level: nextProps.currentRating ? nextProps.currentRating.comfort_level : 5,
+            would_participate: nextProps.currentRating ? nextProps.currentRating.would_participate : 5,
+            camel: nextProps.currentRating ? nextProps.currentRating.camel : 5,
         });
     },
     handleSubmit: function(e) {
         e.preventDefault();
         this.props.updateRating({
             fit: this.state.fit,
+            comfort_level: this.state.comfort_level,
+            would_participate: this.state.would_participate,
+            camel: this.state.camel,
         });
         this.setState({
             snackBarOpen: true,
         });
     },
-    handleChange: function(e, value) {
+    handleChangeFit: function(e, value) {
         this.setState({fit: Math.round(value * 10)});
+    },
+    handleChangeComfortLevel: function(e, value) {
+        this.setState({comfort_level: Math.round(value * 10)});
+    },
+    handleChangeWouldParticipate: function(e, value) {
+        this.setState({would_participate: Math.round(value * 10)});
+    },
+    handleChangeCamel: function(e, value) {
+        this.setState({camel: Math.round(value * 10)});
     },
     handleSnackBarClose: function() {
         this.setState({
@@ -36,8 +51,14 @@ const RatingFormContainer = React.createClass({
             <RatingForm
                 currentRating={this.props.currentRating}
                 fit={this.state.fit}
+                comfort_level={this.state.comfort_level}
+                would_participate={this.state.would_participate}
+                camel={this.state.camel}
                 handleSubmit={this.handleSubmit}
-                handleChange={this.handleChange}
+                handleChangeFit={this.handleChangeFit}
+                handleChangeComfortLevel={this.handleChangeComfortLevel}
+                handleChangeWouldParticipate={this.handleChangeWouldParticipate}
+                handleChangeCamel={this.handleChangeCamel}
                 snackBarOpen={this.state.snackBarOpen}
                 handleSnackBarOpen={this.handleSnackBarOpen}
                 handleSnackBarClose={this.handleSnackBarClose}
