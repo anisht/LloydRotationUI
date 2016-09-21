@@ -58,16 +58,14 @@ const apiClient = {
     getRating: function(prefrosh_id) {
         return axios.get(baseURL + "/rotation/api/rating/" + prefrosh_id)
             .then(function(info) {
-                return info.data.rating;
+                return info.data;   
             })
             .catch(function (err) {
                 console.warn('Error in getRating', err);
             }); 
     },
     updateRating: function(prefrosh_id, rating) {
-        return axios.post(baseURL + "/rotation/api/rating/" + prefrosh_id, {
-            rating: rating
-        })
+        return axios.post(baseURL + "/rotation/api/rating/" + prefrosh_id, rating)
             .then(function (response) {
                 return response
             })

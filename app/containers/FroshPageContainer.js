@@ -21,7 +21,7 @@ const FroshPageContainer = React.createClass({
             prefrosh_id: this.props.routeParams.prefrosh_id,
             frosh: null,
             comments: [],
-            rating: null
+            currentRating: null
         };
     },
     componentDidMount: function() {
@@ -34,7 +34,7 @@ const FroshPageContainer = React.createClass({
             prefrosh_id: nextProps.routeParams.prefrosh_id,
             frosh: null,
             comments: [],
-            rating: null
+            currentRating: null
         });
         this.requestFrosh(nextProps.routeParams.prefrosh_id);
         this.requestComments(nextProps.routeParams.prefrosh_id);
@@ -60,7 +60,7 @@ const FroshPageContainer = React.createClass({
         apiClient.getRating(prefrosh_id)
             .then(function (rating) {
                 this.setState({
-                    rating: rating,
+                    currentRating: rating,
                 });
             }.bind(this));
     },
@@ -96,7 +96,7 @@ const FroshPageContainer = React.createClass({
             :
                 <FroshPage
                     frosh={this.state.frosh}
-                    rating={this.state.rating}
+                    currentRating={this.state.currentRating}
                     comments={this.state.comments}
                     updateRating={this.updateRating}
                     addComment={this.addComment}
