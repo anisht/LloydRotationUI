@@ -21,20 +21,24 @@ const FroshPageContainer = React.createClass({
             prefrosh_id: this.props.routeParams.prefrosh_id,
             frosh: null,
             comments: [],
+            currentRating: null
         };
     },
     componentDidMount: function() {
         this.requestFrosh(this.state.prefrosh_id);
         this.requestComments(this.state.prefrosh_id);
+        this.requestRating(this.state.prefrosh_id);
     },
     componentWillReceiveProps: function(nextProps) {
         this.setState({
             prefrosh_id: nextProps.routeParams.prefrosh_id,
             frosh: null,
             comments: [],
+            currentRating: null
         });
         this.requestFrosh(nextProps.routeParams.prefrosh_id);
         this.requestComments(nextProps.routeParams.prefrosh_id);
+        this.requestRating(nextProps.routeParams.prefrosh_id);
     },
     requestFrosh: function(prefrosh_id) {
         apiClient.getFrosh(prefrosh_id)
@@ -52,11 +56,27 @@ const FroshPageContainer = React.createClass({
                 });
             }.bind(this));
     },
+    requestRating: function(prefrosh_id) {
+        apiClient.getRating(prefrosh_id)
+            .then(function (rating) {
+                this.setState({
+                    currentRating: rating,
+                });
+            }.bind(this));
+    },
     addComment: function(comment) {
         if (comment) {
             apiClient.postComment(this.state.prefrosh_id, comment)
                 .then(function (response) {
                     this.requestComments(this.state.prefrosh_id);
+                }.bind(this));
+        }
+    },
+    updateRating: function(rating) {
+        if (rating) {
+            apiClient.updateRating(this.state.prefrosh_id, rating)
+                .then(function (response) {
+                    this.requestRating(this.state.prefrosh_id);
                 }.bind(this));
         }
     },
@@ -76,7 +96,9 @@ const FroshPageContainer = React.createClass({
             :
                 <FroshPage
                     frosh={this.state.frosh}
+                    currentRating={this.state.currentRating}
                     comments={this.state.comments}
+                    updateRating={this.updateRating}
                     addComment={this.addComment}
                     deleteComment={this.deleteComment}
                 />

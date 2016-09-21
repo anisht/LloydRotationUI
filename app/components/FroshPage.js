@@ -5,6 +5,8 @@ import {Grid, Row, Col} from 'react-flexbox-grid';
 import FroshDetailedCard from './FroshDetailedCard';
 import CommentContainer from '../containers/CommentContainer';
 import CommentFormContainer from '../containers/CommentFormContainer';
+// import RatingContainer from '../containers/RatingContainer';
+import RatingFormContainer from '../containers/RatingFormContainer';
 
 const FroshPage = (props) => (
     <Grid>
@@ -13,6 +15,12 @@ const FroshPage = (props) => (
                 <FroshDetailedCard frosh={props.frosh}/>
             </Col>
             <Col xs={12} sm={8} md={8}>
+                <div style={{margin: "40px 20px 20px 20px"}}>
+                    <RatingFormContainer
+                        currentRating={props.currentRating}
+                        updateRating={props.updateRating}
+                    />
+                </div>
                 <div style={{margin: "20px"}}>
                     <CommentFormContainer addComment={props.addComment}/>
                     <br/>
