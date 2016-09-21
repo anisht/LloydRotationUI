@@ -13,7 +13,7 @@ const FroshDetailedCard = (props) => (
     <div>
         <Card style={styles.cardStyle}>
             <CardMedia>
-                <img src={props.frosh.photo_url}/>
+                <img src={"static/" + props.frosh.photo_url} height="370" alt="No image :("/>
             </CardMedia>
             <CardTitle
                 title={props.frosh.displayName}
