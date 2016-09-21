@@ -55,6 +55,26 @@ const apiClient = {
                 console.warn('Error in deleteComment', err);
             });
     },
+    getRating: function(prefrosh_id) {
+        return axios.get(baseURL + "/rotation/api/rating/" + prefrosh_id)
+            .then(function(info) {
+                return info.data.rating;
+            })
+            .catch(function (err) {
+                console.warn('Error in getRating', err);
+            }); 
+    },
+    updateRating: function(prefrosh_id, rating) {
+        return axios.post(baseURL + "/rotation/api/rating/" + prefrosh_id, {
+            rating: rating
+        })
+            .then(function (response) {
+                return response
+            })
+            .catch(function (err) {
+                console.warn('Error in updateRating', err);
+            });
+    }
 }
 
 export default apiClient;
