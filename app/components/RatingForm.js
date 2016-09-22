@@ -11,7 +11,6 @@ const styles = {
         textAlign: "right",
     },
     categoryFont: {
-        fontWeight: 900,
         color: amber500,
     },
     floatLeft: {
@@ -27,7 +26,7 @@ const styles = {
 
 const SliderWidget = (props) => (
     <div>
-        <div>
+        <div style={styles.categoryFont}>
                 {props.category}
         </div>
         <div style={styles.floatLeft}>
