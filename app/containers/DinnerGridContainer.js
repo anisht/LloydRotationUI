@@ -51,7 +51,7 @@ const DinnerGridContainer = React.createClass({
                     <CircularProgress style={styles.center} size={140}/>
                 </div>
             :
-                <FroshGrid froshList={this.state.froshList}/>
+                <DinnerGrid froshList={this.state.froshList}/>
         );
     }
 });

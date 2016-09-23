@@ -1,23 +1,20 @@
 import React from 'react';
-import Divider from 'material-ui/Divider';
+import {Grid, Row, Col} from 'react-flexbox-grid';
 
-import FroshCard from './FroshCard';
-import DinnerGridContainer from '../containers/DinnerGridContainer';
-
-const styles = {
-    title: {
-        margin: "10px 50px 10px 50px",
-    },
-}
+import FroshCardContainer from '../containers/FroshCardContainer';
 
 const DinnerGrid = (props) => (
-    <div>
-        <div style={styles.title}>
-            <h2> Dinner </h2>
-            <Divider/>
-        </div>
-        <DinnerGridContainer />
-    </div>
+    <Grid fluid>
+        <Row>
+            {props.froshList.map(function(frosh, index) {
+                return (
+                    <Col xs={6} sm={3} md={3} lg={2} key={index}>
+                        <FroshCardContainer frosh={frosh}/>
+                    </Col>
+                )
+            })}
+        </Row>
+    </Grid>
 );
 
 export default DinnerGrid;
