@@ -88,12 +88,8 @@ const FroshPageContainer = React.createClass({
     },
     render() {
         return (
-            !this.state.frosh
+            this.state.frosh
             ?
-                <div style={styles.loading}>
-                    <CircularProgress style={styles.center} size={140}/>
-                </div>
-            :
                 <FroshPage
                     frosh={this.state.frosh}
                     currentRating={this.state.currentRating}
@@ -102,6 +98,10 @@ const FroshPageContainer = React.createClass({
                     addComment={this.addComment}
                     deleteComment={this.deleteComment}
                 />
+            :
+                <div style={styles.loading}>
+                    <CircularProgress style={styles.center}/>
+                </div>
         );
     }
 });

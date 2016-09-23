@@ -19,7 +19,6 @@ const FroshGridContainer = React.createClass({
     getInitialState: function() {
         return {
             froshList: [],
-            loading: true,
         }
     },
     componentDidMount: function() {
@@ -28,21 +27,21 @@ const FroshGridContainer = React.createClass({
     requestFroshList: function() {
         apiClient.getFroshList()
             .then(function (froshList) {
+                //console.log(froshList.filter((frosh) => frosh.dessert_id === 1));
                 this.setState({
                     froshList: froshList,
-                    loading: false,
                 });
             }.bind(this));
     },
     render: function() {
         return (
-            this.state.loading
+            this.state.froshList
             ?
-                <div style={styles.loading}>
-                    <CircularProgress style={styles.center} size={140}/>
-                </div>
-            :
                 <FroshGrid froshList={this.state.froshList}/>
+            :
+                <div style={styles.loading}>
+                    <CircularProgress style={styles.center}/>
+                </div>
         );
     }
 });
