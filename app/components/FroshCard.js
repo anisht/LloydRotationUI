@@ -20,7 +20,7 @@ const styles = {
 }
 
 const FroshCard = (props) => (
-    <Card style={styles.cardStyle} onTouchTap={props.handleClick}>
+    <Card style={styles.cardStyle}>
         <CardMedia
             overlay={
                 <CardTitle 
