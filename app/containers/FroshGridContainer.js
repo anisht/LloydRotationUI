@@ -19,10 +19,13 @@ const styles = {
 
 const FroshGridContainer = React.createClass({
     getInitialState: function() {
+        const filterValue = localStorage.filterValue ? Number(localStorage.filterValue) : 0;
+        localStorage.filterValue = filterValue;
+
         return {
             froshList: [],
             filteredFroshList: [],
-            filterValue: 0,
+            filterValue: filterValue,
         }
     },
     componentDidMount: function() {
@@ -44,6 +47,7 @@ const FroshGridContainer = React.createClass({
     },
     handleFilterValueChange: function(e, index, value) {
         if (value !== this.state.filterValue) {
+            localStorage.filterValue = value;
             this.setState({
                 filterValue: value,
                 filteredFroshList: this.getFilteredFroshList(value),
