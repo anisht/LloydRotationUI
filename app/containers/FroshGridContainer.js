@@ -36,7 +36,7 @@ const FroshGridContainer = React.createClass({
             .then(function (froshList) {
                 this.setState({
                     froshList: froshList,
-                    filteredFroshList: this.getFilteredFroshList(this.state.froshList, this.state.filterValue),
+                    filteredFroshList: this.getFilteredFroshList(froshList, this.state.filterValue),
                 });
             }.bind(this));
     },
