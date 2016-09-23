@@ -36,7 +36,7 @@ const FroshGridContainer = React.createClass({
             .then(function (froshList) {
                 this.setState({
                     froshList: froshList,
-                    filteredFroshList: froshList,
+                    filteredFroshList: this.getFilteredFroshList(this.state.froshList, this.state.filterValue),
                 });
             }.bind(this));
     },
@@ -50,19 +50,19 @@ const FroshGridContainer = React.createClass({
             localStorage.filterValue = value;
             this.setState({
                 filterValue: value,
-                filteredFroshList: this.getFilteredFroshList(value),
+                filteredFroshList: this.getFilteredFroshList(this.state.froshList, value),
             });
         }
     },
-    getFilteredFroshList: function(filterValue)  {
+    getFilteredFroshList: function(froshList, filterValue)  {
         if (filterValue == 0) {
-            return this.state.froshList;
+            return froshList;
         }
         else if (filterValue <= num_dinners) {
-            return this.state.froshList.filter((frosh) => frosh.dinner_id === filterValue);
+            return froshList.filter((frosh) => frosh.dinner_id === filterValue);
         }
         else {
-            return this.state.froshList.filter((frosh) => frosh.dessert_id === filterValue - num_dinners);
+            return froshList.filter((frosh) => frosh.dessert_id === filterValue - num_dinners);
         }
     },
     render: function() {
