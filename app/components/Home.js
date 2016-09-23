@@ -14,7 +14,6 @@ const Home = (props) => (
     <div>
         <div style={styles.title}>
             <h2> The Prefrosh </h2>
-            <Divider/>
         </div>
         <FroshGridContainer />
     </div>
