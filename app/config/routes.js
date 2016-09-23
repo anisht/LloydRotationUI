@@ -7,6 +7,7 @@ import {amber500, amber700} from 'material-ui/styles/colors';
 
 import Main from '../containers/Main';
 import Home from '../components/Home';
+import DinnerGrid from '../components/DinnerGrid';
 import FroshPageContainer from '../containers/FroshPageContainer';
 
 const muiTheme = getMuiTheme({
@@ -32,6 +33,7 @@ const routes = (
             <Route path='/' component={Main}>
                 <IndexRoute component={Home} />
                 <Route path='/frosh/:prefrosh_id' component={FroshPageContainer} />
+                <Route path='/dinner/:dinner_id' component={DinnerGrid} />
             </Route>
         </Router>
     </MuiThemeProvider>

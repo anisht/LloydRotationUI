@@ -20,6 +20,24 @@ const apiClient = {
                 console.warn('Error in getFroshList', err);
             });
     },
+    getDinnerList: function(dinner_id) {
+        return axios.get(baseURL + "/rotation/api/dinner/" + dinner_id)
+            .then(function(info) {
+                return info.data.prefroshList;
+            })
+            .catch(function (err) {
+                console.warn('Error in getDinnerList', err);
+            });
+    },
+    getDessertList: function(dessert_id) {
+        return axios.get(baseURL + "/rotation/api/dessert/" + dessert_id)
+            .then(function(info) {
+                return info.data.prefroshList;
+            })
+            .catch(function (err) {
+                console.warn('Error in getDessertList', err);
+            });
+    },
     getFrosh: function(prefrosh_id) {
         return axios.get(baseURL + "/rotation/api/prefrosh/" + prefrosh_id)
             .then(function(info) {
