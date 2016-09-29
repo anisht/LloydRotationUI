@@ -21,7 +21,7 @@ const styles = {
 
 const Comment = (props) => (
     <div>
-        <p style={styles.author}>{props.author} @ {props.timestamp}</p>
+        <p style={styles.author}>{props.author} | {props.timestamp} | upvotes: {props.rating}</p>
         {
             // Only show delete if comment isn't from admin
             props.author !== "admin" &&
@@ -32,7 +32,7 @@ const Comment = (props) => (
                 onTouchTap={props.handleDialogOpen}
             />
         }
-        <p style={styles.content}>{props.rating} : {props.content}</p>
+        <p style={styles.content}>{props.content}</p>
         <Divider />
         <Dialog
             title="Delete Confirmation"
