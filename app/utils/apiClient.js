@@ -32,6 +32,7 @@ const apiClient = {
     getComments: function(prefrosh_id) {
         return axios.get(baseURL + "/rotation/api/feedback/" + prefrosh_id)
             .then(function(info) {
+                console.log(info.data.comments);
                 return info.data.comments;
             })
             .catch(function (err) {

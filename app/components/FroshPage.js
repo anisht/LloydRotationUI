@@ -31,6 +31,8 @@ const FroshPage = (props) => (
                                 <CommentContainer
                                     key={index}
                                     author={comment.user}
+                                    timestamp={comment.timestamp}
+                                    rating={comment.rating}
                                     content={comment.content}
                                     comment_id={comment.id}
                                     deleteComment={props.deleteComment}

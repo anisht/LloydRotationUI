@@ -30,6 +30,8 @@ const CommentContainer = React.createClass({
         return (
             <Comment
                 author={this.props.author}
+                timestamp={this.props.timestamp}
+                rating={this.props.rating}
                 content={this.props.content}
                 dialogOpen={this.state.dialogOpen}
                 handleDelete={this.handleDelete}
