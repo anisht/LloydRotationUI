@@ -21,7 +21,7 @@ const styles = {
 
 const Comment = (props) => (
     <div>
-        <p style={styles.author}>{props.author} | {props.timestamp} | upvotes: {props.rating}</p>
+        <p style={styles.author}>{props.comment_id} | {props.author} | {props.timestamp} | upvotes: {props.rating}</p>
         {
             // Only show delete if comment isn't from admin
             props.author !== "admin" &&

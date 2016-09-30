@@ -18,7 +18,10 @@ const FroshDetailedCard = (props) => (
             <CardTitle
                 title={props.frosh.displayName}
                 subtitle={<span>Preferred Name: {props.frosh.preferredName}
-                          <br/>Rotating out of: {props.frosh.rotationHouse}</span>} 
+                          <br/>Rotating out of: {props.frosh.rotationHouse}
+                          <br/>Dinner: {props.frosh.dinner_id}
+                          <br/>Dessert: {props.frosh.dessert_id}
+                          <br/>Comeback: {props.frosh.comeback}</span>} 
             />
         </Card>
     </div>

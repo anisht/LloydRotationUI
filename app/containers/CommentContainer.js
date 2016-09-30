@@ -31,6 +31,7 @@ const CommentContainer = React.createClass({
             <Comment
                 author={this.props.author}
                 timestamp={this.props.timestamp}
+                comment_id={this.props.comment_id}
                 rating={this.props.rating}
                 content={this.props.content}
                 dialogOpen={this.state.dialogOpen}
