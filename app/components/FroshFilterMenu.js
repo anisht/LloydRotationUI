@@ -24,8 +24,8 @@ const FroshFilterMenu = (props) => (
         <Divider />
         <MenuItem value={9} primaryText="Dessert 9/20" />
         <MenuItem value={10} primaryText="Dessert 9/21" />
-        <MenuItem value={11} primaryText="Dessert 9/22" />
-        <MenuItem value={12} primaryText="Dessert 9/23" />
+        <MenuItem value={11} primaryText="Dessert 9/23" />
+        <MenuItem value={12} primaryText="Dessert 9/24" />
         <MenuItem value={13} primaryText="Dessert 9/25" />
         <MenuItem value={14} primaryText="Dessert 9/26" />
         <MenuItem value={15} primaryText="Dessert 9/27" />
